@@ -9,13 +9,17 @@ from math import sqrt
 
 def calcular():
     messagebox.showinfo("Cálculo v1.0" , "Hizo cluck en el botón Calcular...")
-    k = (int(y.get())^2-(4*int(x.get())*int(z.get())))
+    a = int(x.get())
+    b = int(y.get())
+    c = int(z.get())
+    
+    k = (b**2)-4*(a)*(c)
     if k < 0:
         messagebox.showwarning(message="¡La Entrada es Compleja!\nLa solución estará dada por números complejos.",title="Precaución")  
     elif k > 0:
-        x1 = (-(int(y.set())) + sqrt(int(y.get())**2-(4*(int(x.get()))*(int(z.get())))))/(2*int(x.get()))
-        x2 = (-(int(y.set())) - sqrt(int(y.get())**2-(4*(int(x.get()))*(int(z.get())))))/(2*int(x.get()))
-        t_resultados.insert(INSERT, "La ecuación que involucra a"+ x.get()+" como término cuadrático, "+ y.set()+" como término lineal y "+ z.get()+ " como término independiente es " "\n"+str(x1)+ "\n" +str(x2)+ "\n")
+        x1 = (b*(-1) + sqrt(k))/(2*a)
+        x2 = (b*(-1) - sqrt(k))/(2*a)
+        t_resultados.insert(INSERT, "La ecuación que involucra a "+ x.get()+" como término cuadrático, "+ y.get()+" como término lineal y "+ z.get()+ " como término independiente es " "\n"+str(x1)+ "\n" +str(x2)+ "\n")
 
 
 def borrar():
@@ -62,35 +66,35 @@ titulo.config(bg= "white", fg="saddle brown", font=("Times New Roman", 20))
 titulo.place(x=140 , y=10, width=330 , height=30)
 
 # Etiqueta para x
-lb_x = Label(frame_entrada, text= "X² = ")
+lb_x = Label(frame_entrada, text= "= A² ")
 lb_x.config(bg="white", fg="green" , font=("Times New Roman", 22))
-lb_x.place(x=40 , y= 50 , width=115 , height=30) 
+lb_x.place(x=150 , y= 50 , width=115 , height=30) 
 
 # Entry para x
 entry_x = Entry(frame_entrada, textvariable=x)
 entry_x.config(font=("Times New Roman", 24), justify=LEFT, fg="blue")
 entry_x.focus_set()
-entry_x.place(x=120 , y=50 , width=115 , height=30)
+entry_x.place(x=60 , y=50 , width=115 , height=30)
 
 # Etiqueta para y
-lb_y = Label(frame_entrada , text= "Y = ")
+lb_y = Label(frame_entrada , text= "= B ")
 lb_y.config(bg="white", fg="blue", font=("Times New Roman",22))
-lb_y.place(x=180, y=90, width=115, height=30)
+lb_y.place(x=270, y=90, width=115, height=30)
 
 # Entry para y
 entry_y = Entry(frame_entrada,textvariable=y)
 entry_y.config(font=("Times New Roman",22), justify=LEFT, fg="blue")
-entry_y.place(x=260,y=90,width=115, height=30)
+entry_y.place(x=180,y=90,width=115, height=30)
 
 #Etiqueta para z
-lb_z = Label(frame_entrada , text="Z = ")
+lb_z = Label(frame_entrada , text="= C ")
 lb_z.config(bg= "white" , fg="red" , font=("Times New Roman", 22))
-lb_z.place(x=305 , y=130, width=115 , height=30)
+lb_z.place(x=390 , y=130, width=115 , height=30)
 
 #Entry para z
 entry_z = Entry(frame_entrada , textvariable=z)
 entry_z.config(font=("Times New Roman", 22), justify=LEFT , fg="blue")
-entry_z.place(x=385, y=130 , width=115, height=30)
+entry_z.place(x=300, y=130 , width=115, height=30)
 
 # Frame operaciones
 
@@ -121,7 +125,7 @@ frame_resultados.place(x=10 , y=380)
 
 # area de texto para resultados
 t_resultados = Text(frame_resultados)
-t_resultados.config(bg="steelblue1", fg="black", font=("Arial",20))
+t_resultados.config(bg="steelblue1", fg="black", font=("Times New Roman",16))
 t_resultados.place(x=10,y=10,width=560,height=90)
 
 
